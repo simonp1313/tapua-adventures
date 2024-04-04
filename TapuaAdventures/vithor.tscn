@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://evwl3tb3onh"]
+
+[ext_resource type="Texture2D" uid="uid://sabr4n4phkvx" path="res://Assets/vithor_run.png" id="1_5me8k"]
+[ext_resource type="Script" path="res://vithor.gd" id="1_7xsgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4266s"]
+size = Vector2(20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13ayl"]
+atlas = ExtResource("1_5me8k")
+region = Rect2(0, 0, 635, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq2en"]
+atlas = ExtResource("1_5me8k")
+region = Rect2(635, 0, 635, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyfmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13ayl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq2en")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="Vithor" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_7xsgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_4266s")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_oyfmk")
+animation = &"run"
+
+[node name="Camera2D" type="Camera2D" parent="."]

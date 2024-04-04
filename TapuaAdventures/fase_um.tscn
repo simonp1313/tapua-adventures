@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtoyyf0sxygsr"]
+
+[ext_resource type="Texture2D" uid="uid://bg6l2gx6ohney" path="res://Assets/fundo_floresta.jpg" id="1_p4emp"]
+[ext_resource type="PackedScene" uid="uid://evwl3tb3onh" path="res://vithor.tscn" id="2_tprb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jasvw"]
+size = Vector2(3341, 158)
+
+[node name="FaseUm" type="Node2D"]
+
+[node name="Fundo" type="Node2D" parent="."]
+
+[node name="FundoFloresta2" type="Sprite2D" parent="Fundo"]
+position = Vector2(1664.5, 325)
+scale = Vector2(1.08774, 1.22642)
+texture = ExtResource("1_p4emp")
+
+[node name="FundoFloresta" type="Sprite2D" parent="Fundo"]
+position = Vector2(576.5, 325)
+scale = Vector2(1.08774, 1.22642)
+texture = ExtResource("1_p4emp")
+
+[node name="FundoFloresta3" type="Sprite2D" parent="Fundo"]
+position = Vector2(2752.5, 325)
+scale = Vector2(1.08774, 1.22642)
+texture = ExtResource("1_p4emp")
+
+[node name="ChaoColisao" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaoColisao"]
+position = Vector2(1660.5, 572)
+shape = SubResource("RectangleShape2D_jasvw")
+
+[node name="Vithor" parent="." instance=ExtResource("2_tprb1")]
+position = Vector2(174, 430)
+
+[node name="Camera2D" parent="Vithor" index="2"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+drag_horizontal_enabled = true
+drag_left_margin = 0.4
+editor_draw_drag_margin = true
+
+[editable path="Vithor"]
